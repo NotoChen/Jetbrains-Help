@@ -63,7 +63,7 @@ window.copyLicense = async function (e) {
     let licenseInfo = JSON.parse(localStorage.getItem('licenseInfo'))
     let productCode = e.closest('.card').dataset.productCodes;
     let data = {
-        "licenseeName": licenseInfo.licenseeName,
+        "licenseName": licenseInfo.licenseeName,
         "assigneeName": licenseInfo.assigneeName,
         "expiryDate": licenseInfo.expiryDate,
         "productCode": productCode,
