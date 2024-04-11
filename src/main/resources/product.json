@@ -1,0 +1,67 @@
+[
+  {
+    "name": "All Jetbrains's Product Or Plugin",
+    "productCode": "",
+    "iconClass": "icon-al"
+  },
+  {
+    "name": "IntelliJ IDEA",
+    "productCode": "II,PCWMP,PSI",
+    "iconClass": "icon-ii"
+  },
+  {
+    "name": "PhpStorm",
+    "productCode": "PS,PCWMP,PSI",
+    "iconClass": "icon-ps"
+  },
+  {
+    "name": "AppCode",
+    "productCode": "AC,PCWMP,PSI",
+    "iconClass": "icon-ac"
+  },
+  {
+    "name": "DataGrip",
+    "productCode": "DB,PSI,PDB",
+    "iconClass": "icon-db"
+  },
+  {
+    "name": "RubyMine",
+    "productCode": "RM,PCWMP,PSI",
+    "iconClass": "icon-rm"
+  },
+  {
+    "name": "WebStorm",
+    "productCode": "WS,PCWMP,PSI",
+    "iconClass": "icon-ws"
+  },
+  {
+    "name": "Rider",
+    "productCode": "RD,PDB,PSI,PCWMP",
+    "iconClass": "icon-rd"
+  },
+  {
+    "name": "CLion",
+    "productCode": "CL,PSI,PCWMP",
+    "iconClass": "icon-cl"
+  },
+  {
+    "name": "PyCharm",
+    "productCode": "PC,PSI,PCWMP",
+    "iconClass": "icon-pc"
+  },
+  {
+    "name": "GoLand",
+    "productCode": "GO,PSI,PCWMP",
+    "iconClass": "icon-go"
+  },
+  {
+    "name": "DataSpell",
+    "productCode": "DS,PSI,PDB,PCWMP",
+    "iconClass": "icon-ds"
+  },
+  {
+    "name": "dotMemory",
+    "productCode": "DM",
+    "iconClass": "icon-dm"
+  }
+]

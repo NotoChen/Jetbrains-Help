@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Jetbrains-Help
+  thymeleaf:
+    cache: false
+server:
+  port: 10768
+help:
+  default-license-name: 光云
+  default-assignee-name: 藏柏
+  default-expiry-date: 2111-11-11
