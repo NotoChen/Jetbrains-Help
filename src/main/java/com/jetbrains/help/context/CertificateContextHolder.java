@@ -78,7 +78,7 @@ public class CertificateContextHolder {
         return CertificateContextHolder.crtFile;
     }
 
-    private static void generateCertificate() {
+    public static void generateCertificate() {
         KeyPair keyPair = SecureUtil.generateKeyPair("RSA", 4096);
         PrivateKey privateKey = keyPair.getPrivate();
         PublicKey publicKey = keyPair.getPublic();
