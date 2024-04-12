@@ -1,29 +1,6 @@
-<div data-theme-toc="true"> </div>
 
 ![2024年04月11日22-04-58.gif](https://img2.imgtp.com/2024/04/11/msZXv3CL.gif)
 
-# 首先,放仓库地址:
-
-### GitHub:
-> https://github.com/NotoChen/Jetbrains-Help
-
-### Gitee
-> https://gitee.com/NotoChen/Jetbrains-Help
-
-# 然后,放致谢地址: (致谢程度均一致,与放置顺序无关)
-> [liunx.do](https://linux.do/t/topic/469)
-> 
-> [liunx.do](https://linux.do/t/topic/30480)
-> 
-> [liunx.do](https://linux.do/t/topic/38198)
-> 
-> [liunx.do](https://linux.do/t/topic/42328)
-> 
-> [liunx.do](https://linux.do/t/topic/9209)
-> 
-> [liunx.do](https://linux.do/t/topic/48811)
-> 
-> [liunx.do](https://linux.do/t/topic/49380)
 
 # 接着,介绍技术栈:
 
@@ -510,3 +487,9 @@ document.getElementById('search').oninput = function (e) {
 ## 2024年04月12日 00:40
 
 > **修复瞬间出现"we could not validate your license"的问题**
+
+## 2024年04月12日 15:39
+
+> **解决打包成Jar不能运行的问题**
+> **增加Dockerfile文件**
+> **等等**
