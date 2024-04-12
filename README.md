@@ -22,7 +22,9 @@
 6. 支持自定义License Show
 7. 页面展示IDE+PLUGIN列表,支持实时搜索
 8. 支持生成全局通用激活码(一个激活码可激活所有)
-9. ...
+9. 支持打包Jar运行
+10. 支持Docker运行,内置Dockerfile
+11. ...
 
 # 最后,讲一下心路历程
 
@@ -466,15 +468,6 @@ document.getElementById('search').oninput = function (e) {
 >
 > 因为我觉得768是Jetbrains的谐音,hhhh
 
-> 剩下的再补充吧
->
-> 暂时没有测试打包成Jar是否仍然支持(因为涉及到,读取文件是否存在问题)
->
-> 后续待改进
->
-> 因此暂时也没有测试是否可以支持Docker
->
-> 后续待改进
 
 # FAQ (实时记录)
 
