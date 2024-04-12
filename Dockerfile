@@ -1,4 +1,4 @@
-FROM java:21
+FROM ibm-semeru-runtimes:open-21-jre
 
 ADD target/Jetbrains-Help.jar /Jetbrains-Help.jar
 
