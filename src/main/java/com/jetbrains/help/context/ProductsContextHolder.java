@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductsContextHolder {
 
-    private static final String PRODUCT_JSON_FILE_NAME = "product.json";
+    private static final String PRODUCT_JSON_FILE_NAME = "external/data/product.json";
 
     private static List<ProductCache> productCacheList;
 

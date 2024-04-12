@@ -24,23 +24,31 @@ import java.util.concurrent.CompletableFuture;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AgentContextHolder {
 
-    private static final String JA_NETFILTER_FILE_PATH = "static/agent/ja-netfilter";
-//    private static final String JA_NETFILTER_FILE_PATH = "static/agent/ja";
+    private static final String JA_NETFILTER_FILE_PATH = "external/agent/ja-netfilter";
 
     private static final String POWER_CONF_FILE_NAME = JA_NETFILTER_FILE_PATH + "/config/power.conf";
 
     private static File jaNetfilterFile;
 
+    private static File jaNetfilterZipFile;
+
     public static void init() {
         log.info("Agent context init loading...");
-        jaNetfilterFile = FileTools.getFileOrCreat(JA_NETFILTER_FILE_PATH);
-        if (!powerConfHasInit()) {
-            log.info("Agent config init loading...");
-            loadPowerConf();
-            zipJaNetfilter();
-            log.info("Agent config init success !");
+        jaNetfilterZipFile = FileTools.getFileOrCreat(JA_NETFILTER_FILE_PATH + ".zip");
+        if (!FileTools.fileExists(JA_NETFILTER_FILE_PATH)) {
+            unzipJaNetfilter();
+            if (!powerConfHasInit()) {
+                log.info("Agent config init loading...");
+                loadPowerConf();
+                zipJaNetfilter();
+                log.info("Agent config init success !");
+            }
         }
         log.info("Agent context init success !");
+    }
+
+    public static File jaNetfilterZipFile() {
+        return AgentContextHolder.jaNetfilterZipFile;
     }
 
     private static boolean powerConfHasInit() {
@@ -90,7 +98,11 @@ public class AgentContextHolder {
         }
     }
 
+    private static void unzipJaNetfilter() {
+        jaNetfilterFile = ZipUtil.unzip(jaNetfilterZipFile);
+    }
+
     private static void zipJaNetfilter() {
-        ZipUtil.zip(jaNetfilterFile);
+        jaNetfilterZipFile = ZipUtil.zip(jaNetfilterFile);
     }
 }
