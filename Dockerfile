@@ -1,9 +1,4 @@
-FROM ibm-semeru-runtimes:open-21-jdk as build
-ENV MAVEN_VENSION=3.9.6
-RUN apt-get update && apt-get install -y curl
-RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/${MAVEN_VENSION}/binaries/apache-maven-${MAVEN_VENSION}-bin.tar.gz -o /tmp/apache-maven-${MAVEN_VENSION}-bin.tar.gz && \
-    tar -xzf /tmp/apache-maven-${MAVEN_VENSION}-bin.tar.gz -C /opt && \
-    ln -s /opt/apache-maven-${MAVEN_VENSION}/bin/mvn /usr/local/bin/mvn
+FROM maven:3-ibm-semeru-21-jammy as build
 WORKDIR /app
 COPY . .
 RUN mvn clean package
