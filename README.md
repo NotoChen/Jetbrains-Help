@@ -1,3 +1,6 @@
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/NotoChen/Jetbrains-Help.svg?variant=adaptive)](https://starchart.cc/NotoChen/Jetbrains-Help)
+
 
 ![2024年04月11日22-04-58.gif](https://img2.imgtp.com/2024/04/11/msZXv3CL.gif)
 
