@@ -55,8 +55,8 @@ $(document).ready(function() {
         $.post('/generateLicense', JSON.stringify(data))
             .then(response => {
                 copyText(response)
-                    .then(() => {
-                        alert("The activation code has been copied");
+                    .then((result) => {
+                        alert(result);
                     });
             });
     };
@@ -65,6 +65,10 @@ $(document).ready(function() {
     const copyText = async (val) => {
         if (navigator.clipboard && navigator.permissions) {
             await navigator.clipboard.writeText(val);
+            return "The activation code has been copied";
+        } else {
+            console.log(val);
+            return "The system does not support it, please go to the console to copy it manually";
         }
     };
 
