@@ -12,6 +12,9 @@
 <p align="center">
     <img src="https://img.shields.io/github/stars/NotoChen/Jetbrains-Help">
     <img src="https://img.shields.io/github/forks/NotoChen/Jetbrains-Help">
+</p>
+
+<p align="center">
     <img src="https://api.star-history.com/svg?repos=NotoChen/Jetbrains-Help&type=Date">
 </p>
 
