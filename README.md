@@ -12,7 +12,7 @@
 <p align="center">
     <img src="https://img.shields.io/github/stars/NotoChen/Jetbrains-Help">
     <img src="https://img.shields.io/github/forks/NotoChen/Jetbrains-Help">
-    <img src="https://starchart.cc/NotoChen/Jetbrains-Help.svg?variant=adaptive">
+    <img src="https://star-history.com/#NotoChen/Jetbrains-Help&Date">
 </p>
 
 <p align="center">
