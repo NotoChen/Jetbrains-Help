@@ -1,0 +1,9 @@
+services:
+  jetbrains-help:
+    build: .
+    image: jetbrains-help:latest
+    container_name: Jetbrains-Help
+    ports:
+      - 10768:10768
+    volumes:
+      - ./external:/external
