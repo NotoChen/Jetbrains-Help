@@ -33,9 +33,14 @@ $(document).ready(function() {
 
     // Function to show VM options
     window.showVmoptins = function () {
-        alert("-javaagent:/(Your Path)/ja-netfilter/ja-netfilter.jar\n" +
-            "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED\n" +
-            "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED");
+        var text = "-javaagent:/(Your Path)/ja-netfilter/ja-netfilter.jar\n" +
+        "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED\n" +
+        "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED";
+        navigator.clipboard.writeText(text).then(function() {
+            alert("已复制：\n" + text);
+        }).catch(function(error) {
+            alert("复制失败: " + error);
+        });
     };
 
     // Function to copy license
