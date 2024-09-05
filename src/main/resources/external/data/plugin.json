@@ -1608,5 +1608,12 @@
     "name": "Zookeeper-Admin",
     "pricingModel": "PAID",
     "icon": "https://plugins.jetbrains.com"
+  },
+  {
+    "id": 16604,
+    "productCode": "PEXTRATOOLWINDO",
+    "name": "Extra ToolWindow Colorful Icons",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/16604/591101/icon/pluginIcon.svg"
   }
 ]
