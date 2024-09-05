@@ -21,6 +21,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static cn.hutool.crypto.asymmetric.SignAlgorithm.SHA1withRSA;
 
@@ -35,7 +36,7 @@ public class LicenseContextHolder {
                         .setCode(productCode)
                         .setFallbackDate(expiryDate)
                         .setPaidUpTo(expiryDate))
-                .toList();
+                .collect(Collectors.toList());
         LicensePart licensePart = new LicensePart()
                 .setLicenseId(licenseId)
                 .setLicenseeName(licensesName)

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpHeaders.CONTENT_DISPOSITION;
 import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM;
@@ -50,10 +51,10 @@ public class IndexController {
         if (CharSequenceUtil.isNotBlank(search)) {
             productCacheList = productCacheList.stream()
                     .filter(productCache -> CharSequenceUtil.containsIgnoreCase(productCache.getName(), search))
-                    .toList();
+                    .collect(Collectors.toList());
             pluginCacheList = pluginCacheList.stream()
                     .filter(pluginCache -> CharSequenceUtil.containsIgnoreCase(pluginCache.getName(), search))
-                    .toList();
+                    .collect(Collectors.toList());
         }
         model.addAttribute("products", productCacheList);
         model.addAttribute("plugins", pluginCacheList);

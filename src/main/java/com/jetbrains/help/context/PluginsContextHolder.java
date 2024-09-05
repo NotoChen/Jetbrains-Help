@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -101,7 +102,7 @@ public class PluginsContextHolder {
                 .stream()
                 .filter(plugin -> !PluginsContextHolder.pluginCacheList.contains(new PluginCache().setId(plugin.getId())))
                 .filter(plugin -> !CharSequenceUtil.equals(plugin.getPricingModel(), "FREE"))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static List<PluginCache> pluginConversion(List<PluginList.Plugin> pluginList) {
@@ -117,7 +118,7 @@ public class PluginsContextHolder {
                             .setIcon(PLUGIN_BASIC_URL + plugin.getIcon())
                             ;
                 })
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static PluginInfo pluginInfo(Long pluginId) {
@@ -147,9 +148,9 @@ public class PluginsContextHolder {
         @Override
         public final boolean equals(Object o) {
             if (this == o) return true;
-            if (!(o instanceof PluginCache that)) return false;
+            if (!(o instanceof PluginCache)) return false;
 
-            return id.equals(that.id);
+            return id.equals(((PluginCache) o).id);
         }
 
         @Override

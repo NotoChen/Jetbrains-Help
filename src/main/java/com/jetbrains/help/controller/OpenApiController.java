@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 public class OpenApiController {
@@ -41,12 +42,12 @@ public class OpenApiController {
                     .filter(StrUtil::isNotBlank)
                     .map(productCode -> CharSequenceUtil.splitTrim(productCode, ","))
                     .flatMap(Collection::stream)
-                    .toList();
+                    .collect(Collectors.toList());
             List<String> pluginCodeList = PluginsContextHolder.pluginCacheList()
                     .stream()
                     .map(PluginsContextHolder.PluginCache::getProductCode)
                     .filter(StrUtil::isNotBlank)
-                    .toList();
+                    .collect(Collectors.toList());
             productCodeSet = CollUtil.newHashSet(productCodeList);
             productCodeSet.addAll(pluginCodeList);
         }else {
