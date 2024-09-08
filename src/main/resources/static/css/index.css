@@ -367,16 +367,13 @@ body {
     background-position-x: 0;
 }
 
-.icon-al {
-    background-position-y: -1728px;
-}
 
 .icon-ii {
-    background-position-y: -448px;
+    background-image: url('../images/intellij-idea.svg?v=1');
 }
 
 .icon-ps {
-    background-position-y: -512px;
+    background-image: url('../images/phpstorm.svg?v=1');
 }
 
 .icon-ac {
@@ -384,47 +381,55 @@ body {
 }
 
 .icon-db {
-    background-position-y: -320px;
+    background-image: url('../images/datagrip.svg?v=1');
 }
 
 .icon-rm {
-    background-position-y: -896px;
+    background-image: url('../images/rubymine.svg?v=1');
 }
 
 .icon-ws {
-    background-position-y: -960px;
+    background-image: url('../images/webstorm.svg?v=1');
 }
 
 .icon-rd {
-    background-position-y: -832px;
+    background-image: url('../images/rider.svg?v=1');
 }
 
 .icon-cl {
-    background-position-y: -256px;
+    background-image: url('../images/clion.svg?v=1');
 }
 
 .icon-pc {
-    background-position-y: -576px;
+    background-image: url('../images/pycharm.svg?v=1');
 }
 
 .icon-go {
-    background-position-y: -384px;
+    background-image: url('../images/goland.svg?v=1');
 }
 
 .icon-ds {
-    background-position-y: -1792px;
+    background-image: url('../images/dataspell.svg?v=1');
 }
 
 .icon-dc {
-    background-position-y: -1408px;
+    background-image: url('../images/dotcover.svg?v=1');
 }
 
 .icon-dpn {
-    background-position-y: -1536px;
+    background-image: url('../images/dottrace.svg?v=1');
 }
 
 .icon-dm {
-    background-position-y: -1472px;
+    background-image: url('../images/dotmemory.svg?v=1');
+}
+
+.icon-rr {
+    background-image: url('../images/rustrover.svg?v=1');
+}
+
+.icon-qa {
+    background-image: url('../images/aqua.svg?v=1');
 }
 
 .mask {

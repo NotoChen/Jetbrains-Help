@@ -63,5 +63,15 @@
     "name": "dotMemory",
     "productCode": "DM",
     "iconClass": "icon-dm"
+  },
+  {
+    "name": "Aqua",
+    "productCode": "QA,PSI,PCWMP",
+    "iconClass": "icon-qa"
+  },
+  {
+    "name": "RustRover",
+    "productCode": "RR,PSI,PCWMP",
+    "iconClass": "icon-rr"
   }
 ]
