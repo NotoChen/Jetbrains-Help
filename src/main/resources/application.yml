@@ -6,6 +6,6 @@ spring:
 server:
   port: 10768
 help:
-  default-license-name: 光云
-  default-assignee-name: 藏柏
-  default-expiry-date: 2111-11-11
+  default-license-name: cikaros.top
+  default-assignee-name: Cikaros
+  default-expiry-date: 2099-12-31
