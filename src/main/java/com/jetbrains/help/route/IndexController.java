@@ -40,12 +40,14 @@ public class IndexController {
     private final JetbrainsHelpProperties jetbrainsHelpProperties;
 
     @GetMapping
-    public String index(Model model) {
+    public String index(HttpServletRequest request,Model model) {
+        String basePath = (request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath());
         List<ProductsContextHolder.ProductCache> productCacheList = ProductsContextHolder.productCacheList();
         List<PluginsContextHolder.PluginCache> pluginCacheList = PluginsContextHolder.pluginCacheList();
         model.addAttribute("products", productCacheList);
         model.addAttribute("plugins", pluginCacheList);
         model.addAttribute("defaults", jetbrainsHelpProperties);
+        model.addAttribute("basePath", basePath);
         return "index";
     }
 
