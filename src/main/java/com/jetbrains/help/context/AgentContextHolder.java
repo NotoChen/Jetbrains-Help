@@ -26,7 +26,7 @@ public class AgentContextHolder {
 
     private static final String JA_NETFILTER_FILE_PATH = "external/agent/ja-netfilter";
 
-    private static final String POWER_CONF_FILE_NAME = JA_NETFILTER_FILE_PATH + "/config/power.conf";
+    private static final String POWER_CONF_FILE_NAME = JA_NETFILTER_FILE_PATH + "/config-jetbrains/power.conf";
 
     private static File jaNetfilterFile;
 
@@ -35,7 +35,7 @@ public class AgentContextHolder {
     public static void init() {
         log.info("Agent context init loading...");
         jaNetfilterZipFile = FileTools.getFileOrCreat(JA_NETFILTER_FILE_PATH + ".zip");
-        if (!FileTools.fileExists(JA_NETFILTER_FILE_PATH)) {
+        if (FileTools.fileNotExists(JA_NETFILTER_FILE_PATH)) {
             unzipJaNetfilter();
             if (!powerConfHasInit()) {
                 log.info("Agent config init loading...");
@@ -75,14 +75,27 @@ public class AgentContextHolder {
 
     @SneakyThrows
     private static String generatePowerConfigRule() {
-        X509Certificate crt = (X509Certificate) KeyUtil.readX509Certificate(IoUtil.toStream(CertificateContextHolder.crtFile()));
-        RSAPublicKey publicKey = (RSAPublicKey) PemUtil.readPemPublicKey(IoUtil.toStream(CertificateContextHolder.publicKeyFile()));
-        RSAPublicKey rootPublicKey = (RSAPublicKey) PemUtil.readPemPublicKey(IoUtil.toStream(CertificateContextHolder.rootKeyFile()));
+        StringBuilder result = new StringBuilder();
+        X509Certificate crt = (X509Certificate) KeyUtil.readX509Certificate(IoUtil.toStream(CertificateContextHolder.getCrtFile()));
+        X509Certificate licenseCrt = (X509Certificate) KeyUtil.readX509Certificate(IoUtil.toStream(CertificateContextHolder.getLicenseCrtFile()));
+        RSAPublicKey publicKey = (RSAPublicKey) PemUtil.readPemPublicKey(IoUtil.toStream(CertificateContextHolder.getPublicKeyFile()));
+        RSAPublicKey rootPublicKey = (RSAPublicKey) PemUtil.readPemPublicKey(IoUtil.toStream(CertificateContextHolder.getRootKeyFile()));
+        RSAPublicKey rootLicensePublicKey = (RSAPublicKey) PemUtil.readPemPublicKey(IoUtil.toStream(CertificateContextHolder.getRootLicenseKeyFile()));
         BigInteger x = new BigInteger(1, crt.getSignature());
-        BigInteger y = BigInteger.valueOf(65537L);
+        BigInteger y = rootPublicKey.getPublicExponent();
         BigInteger z = rootPublicKey.getModulus();
         BigInteger r = x.modPow(publicKey.getPublicExponent(), publicKey.getModulus());
-        return CharSequenceUtil.format("EQUAL,{},{},{}->{}", x, y, z, r);
+        result.append("; Activation Code").append("\n")
+                .append(CharSequenceUtil.format("EQUAL,{},{},{}->{}", x, y, z, r))
+                .append("\n");
+        x = new BigInteger(1, licenseCrt.getSignature());
+        z = rootLicensePublicKey.getModulus();
+        y = rootLicensePublicKey.getPublicExponent();
+        r = x.modPow(publicKey.getPublicExponent(), publicKey.getModulus());
+        result.append("; License Server").append("\n")
+                .append(CharSequenceUtil.format("EQUAL,{},{},{}->{}", x, y, z, r))
+                .append("\n");
+        return result.toString();
     }
 
     private static String generatePowerConfigStr(String ruleValue) {

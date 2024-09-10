@@ -53,20 +53,21 @@
 
 ### 功能列表
 
-| 功能                       | DID |
-|:-------------------------|:---:|
-| Jetbrains全产品支持           |  ✅  |
-| Jetbrains全插件支持           |  ✅  |
-| 插件库全自动订阅官网更新             |  ✅  |
-| 公私钥/证书, 自动生成管理           |  ✅  |
-| power.conf文件自动配置         |  ✅  |
-| ja-netfilter.zip自动打包     |  ✅  |
-| 自定义License Show          |  ✅  |
-| 支持实时搜索                   |  ✅  |
-| 插件默认按名称排序                |  ✅  |
-| 支持local/jar/dockerfile运行 |  ✅  |
-| 单码全家桶激活支持                |  ✅  |
-| ……                       | ☑️  |
+| 功能                         | DID |
+|:---------------------------|:---:|
+| Jetbrains全产品支持             |  ✅  |
+| Jetbrains全插件支持             |  ✅  |
+| 插件库全自动订阅官网更新               |  ✅  |
+| 公私钥/证书, 自动生成管理             |  ✅  |
+| power.conf文件自动配置           |  ✅  |
+| ja-netfilter.zip自动打包       |  ✅  |
+| 自定义License Show            |  ✅  |
+| 支持实时搜索                     |  ✅  |
+| 插件默认按名称排序                  |  ✅  |
+| 支持local/jar/dockerfile运行   |  ✅  |
+| 单码全家桶激活支持                  |  ✅  |
+| Jetbrains License Server支持 |  ✅  |
+| ……                         | ☑️  |
 
 ## 运行教程
 
@@ -139,7 +140,7 @@
 - **点击** `编辑自定义虚拟机选型`
 - **键入** 如下配置
 ```
--javaagent:you-path/ja-netfilter.jar
+-javaagent:you-path/ja-netfilter.jar=jetbrains
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 ```
@@ -157,7 +158,7 @@
 - **点击** `编辑JVM选项`
 - **键入** 如下配置
 ```
--javaagent:you-path/ja-netfilter.jar
+-javaagent:you-path/ja-netfilter.jar=jetbrains
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 ```

@@ -3,12 +3,10 @@ package com.jetbrains.help.util;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.system.ApplicationHome;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
-import java.io.IOException;
 
 public interface FileTools {
 
@@ -17,6 +15,10 @@ public interface FileTools {
 
     static boolean fileExists(String path) {
         return getFile(path).exists();
+    }
+
+    static boolean fileNotExists(String path) {
+        return !fileExists(path);
     }
 
     static File getFile(String path) {
