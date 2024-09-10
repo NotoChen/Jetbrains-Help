@@ -26,7 +26,7 @@ public class AgentContextHolder {
 
     private static final String JA_NETFILTER_FILE_PATH = "external/agent/ja-netfilter";
 
-    private static final String POWER_CONF_FILE_NAME = JA_NETFILTER_FILE_PATH + "/config/power.conf";
+    private static final String POWER_CONF_FILE_NAME = JA_NETFILTER_FILE_PATH + "/config-jetbrains/power.conf";
 
     private static File jaNetfilterFile;
 
