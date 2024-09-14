@@ -59,8 +59,11 @@ $(document).ready(function() {
         $.post('/generateLicense', JSON.stringify(data))
             .then(response => {
                 copyText(response)
-                    .then((result) => {
-                        alert(result);
+                    .then(() => {
+                        alert("已复制成功");
+                    })
+                    .catch(() => {
+                        alert("系统不支持复制功能,或者当前非SSL访问,若为Local环境,请使用127.0.0.1或者localhost访问.");
                     });
             });
     };
@@ -68,11 +71,19 @@ $(document).ready(function() {
 // Function to copy text to clipboard
     const copyText = async (val) => {
         if (navigator.clipboard && navigator.permissions) {
-            await navigator.clipboard.writeText(val);
-            return "已复制成功";
+            return navigator.clipboard.writeText(val);
         } else {
             console.log(val);
-            return "系统不支持复制功能,或者当前非SSL访问,若为Local环境,请使用127.0.0.1或者localhost访问.";
+            const textArea = document.createElement('textarea')
+            textArea.value = val
+            // 使text area不在viewport，同时设置不可见
+            document.body.appendChild(textArea)
+            textArea.focus()
+            textArea.select()
+            return new Promise((res, rej) => {
+                document.execCommand('copy') ? res() : rej()
+                textArea.remove()
+            })
         }
     };
 
