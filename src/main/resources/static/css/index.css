@@ -1,3 +1,39 @@
+.content-container,
+.form-container {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.parent {
+    width: 100%;
+    text-align: center;
+}
+.search {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+/* 针对 flex 布局问题的修复 */
+header.tip {
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    align-items: flex-start; /* 子元素左对齐 */
+}
+/* 手机端适配 */
+@media (max-width: 768px) {
+    .form-container {
+        margin-top: 10px;
+    }
+
+    .parent {
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
 .form {
     background-color: #15172b;
     border-radius: 20px;
@@ -6,7 +42,6 @@
     padding: 20px;
     width: 320px;
 }
-
 .title {
     color: #eee;
     font-family: sans-serif;
@@ -518,18 +553,4 @@ header.tip {
 }
 .sticky {
     position: sticky;
-}
-
-
-.parent {
-    position: relative;
-}
-.search {
-    width: 300px;
-    height: 40px;
-    border-radius: 18px;
-    outline: none;
-    /*border: 1px solid #ccc;*/
-    padding-left: 20px;
-    /*position: absolute;*/
 }
