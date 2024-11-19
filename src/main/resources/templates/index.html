@@ -10,17 +10,23 @@
 </head>
 <body>
 <header class="tip sticky flex items-center py-6">
-    <p>
-        🇨🇳 下载 <a href="ja-netfilter" title="Download jetbra first">ja-netfilter.zip</a> , 然后配置
-        你的JetBrains IDE(anything)'s <a onclick="showVmoptins()">IDE.vmoptions</a> 配置文件!<br>
-        🇨🇳 当然你也可以 <a onclick="showLicenseForm()">重新定制激活授权</a> 用以自定义你的激活信息!</br>
-        <strong>🇨🇳 请注意,此页面仅由 <span
-                th:text="${defaults.getDefaultLicenseName()} + '/' + ${defaults.getDefaultAssigneeName()}"></span>
-            个人所有!</strong>
-    </p>
-    <form class="parent">
-        <input type="text" class="search" id="search" placeholder="搜索IDE或者插件">
-    </form>
+   <div class="content-container">
+        <p>
+            🇨🇳 下载 <a href="ja-netfilter" title="Download jetbra first">ja-netfilter.zip</a>, 然后配置
+            你的JetBrains IDE(anything)'s <a onclick="showVmoptins()">IDE.vmoptions</a> 配置文件!<br>
+            🇨🇳 当然你也可以 <a onclick="showLicenseForm()">重新定制激活授权</a> 用以自定义你的激活信息!<br>
+            <strong>🇨🇳 请注意,此页面仅由
+                <span th:text="${defaults.getDefaultLicenseName()} + '/' + ${defaults.getDefaultAssigneeName()}"></span>
+                个人所有!
+            </strong>
+        </p>
+    </div>
+
+    <div class="form-container">
+        <form class="parent">
+            <input type="text" class="search" id="search" placeholder="搜索IDE或者插件">
+        </form>
+    </div>
 </header>
 <main id="product-list" class="px-6 z-grid py-10" style="--space: 20rem; --gutter: 3.5rem">
     <th:block th:fragment="product-list">
