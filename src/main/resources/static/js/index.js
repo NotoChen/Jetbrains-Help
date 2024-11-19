@@ -34,11 +34,14 @@ $(document).ready(function() {
     // Function to show VM options
     window.showVmoptins = function () {
         var text = "-javaagent:/(Your Path)/ja-netfilter/ja-netfilter.jar\n" +
-        "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED\n" +
-        "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED";
-        copyText(text)
-            .then((result) => {
-                alert(result);
+            "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED\n" +
+            "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED";
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                alert('vm.vmoptions 配置已复制到剪切板，请粘贴到IDEA的VM中，修改(Your Path)为你自己的目录：\n');
+            })
+            .catch((err) => {
+                alert("复制失败: " + err);
             });
     };
 
