@@ -8,7 +8,7 @@ import org.springframework.boot.system.ApplicationHome;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
 
 public interface FileTools {
 
@@ -30,14 +30,14 @@ public interface FileTools {
         File file = getFile(path);
         if (ObjectUtil.isNotNull(application.getSource())) {
             ClassPathResource classPathResource = new ClassPathResource(path);
-            File classPathFile = FileUtil.file(classPathResource.getPath());
             if (classPathResource.exists() && !file.exists()) {
-                try {
-                    FileUtil.writeFromStream(classPathResource.getInputStream(), classPathFile);
+                try (InputStream inputStream = classPathResource.getInputStream()) {
+                    FileUtil.writeFromStream(inputStream, file);
                 } catch (Exception e) {
-                    throw new IllegalArgumentException(CharSequenceUtil.format("{} File read failed", classPathFile.getPath()), e);
+                    throw new IllegalArgumentException(
+                            CharSequenceUtil.format("{} File read or write failed", path), e
+                    );
                 }
-                FileUtil.copy(classPathFile, file, true);
             }
         }
         return file;
