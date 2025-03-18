@@ -74,16 +74,22 @@ $(document).ready(function() {
             return navigator.clipboard.writeText(val);
         } else {
             console.log(val);
+            const scrollX = window.scrollX;
             const textArea = document.createElement('textarea')
             textArea.value = val
             // 使text area不在viewport，同时设置不可见
             document.body.appendChild(textArea)
             textArea.focus()
             textArea.select()
-            return new Promise((res, rej) => {
-                document.execCommand('copy') ? res() : rej()
-                textArea.remove()
-            })
+            try {
+                const result = document.execCommand('copy');
+                return result ? Promise.resolve() : Promise.reject();
+            } catch (e) {
+                return Promise.reject(e);
+            } finally {
+                textArea.remove();
+                window.scrollTo(scrollX, 0);
+            }
         }
     };
 
