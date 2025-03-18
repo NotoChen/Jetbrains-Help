@@ -35,7 +35,7 @@ public interface FileTools {
                 try {
                     FileUtil.writeFromStream(classPathResource.getInputStream(), classPathFile);
                 } catch (Exception e) {
-                    throw new IllegalArgumentException(CharSequenceUtil.format("{} File read failed", classPathFile.getPath()), e);
+                    throw new IllegalArgumentException(CharSequenceUtil.format("{} 文件读取失败!", classPathFile.getPath()), e);
                 }
                 FileUtil.copy(classPathFile, file, true);
             }

@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.util.List;
 
-@Slf4j
+@Slf4j(topic = "产品上下文")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductsContextHolder {
 
@@ -23,20 +23,20 @@ public class ProductsContextHolder {
     private static List<ProductCache> productCacheList;
 
     public static void init() {
-        log.info("Product context init loading...");
+        log.info("初始化中...");
         File productJsonFile = FileTools.getFileOrCreat(PRODUCT_JSON_FILE_NAME);
 
         String productJsonArray;
         try {
             productJsonArray = IoUtil.readUtf8(FileUtil.getInputStream(productJsonFile));
         } catch (IORuntimeException e) {
-            throw new IllegalArgumentException(CharSequenceUtil.format("{} File read failed !", PRODUCT_JSON_FILE_NAME), e);
+            throw new IllegalArgumentException(CharSequenceUtil.format("{} 文件读取失败!", PRODUCT_JSON_FILE_NAME), e);
         }
         if (CharSequenceUtil.isBlank(productJsonArray) || !JSONUtil.isTypeJSON(productJsonArray)) {
-            log.error("Jetbrains Product data does not exist !");
+            log.error("产品数据不存在!");
         } else {
             productCacheList = JSONUtil.toList(productJsonArray, ProductCache.class);
-            log.info("Product context init success !");
+            log.info("初始化成功!");
         }
     }
 

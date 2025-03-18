@@ -27,7 +27,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 
-@Slf4j
+@Slf4j(topic = "证书上下文")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CertificateContextHolder {
 
@@ -45,20 +45,20 @@ public class CertificateContextHolder {
     private static File crtFile;
 
     public static void init() {
-        log.info("certificate context init loading...");
+        log.info("初始化中...");
         rootKeyFile = FileTools.getFileOrCreat(ROOT_KEY_FILE_NAME);
         if (!FileTools.fileExists(PRIVATE_KEY_FILE_NAME)
                 || !FileTools.fileExists(PUBLIC_KEY_FILE_NAME)
                 || !FileTools.fileExists(CET_FILE_NAME)) {
-            log.info("certificate context generate loading...");
+            log.info("证书生成中...");
             generateCertificate();
-            log.info("certificate context generate success!");
+            log.info("证书生成成功!");
         } else {
             privateKeyFile = FileTools.getFileOrCreat(PRIVATE_KEY_FILE_NAME);
             publicKeyFile = FileTools.getFileOrCreat(PUBLIC_KEY_FILE_NAME);
             crtFile = FileTools.getFileOrCreat(CET_FILE_NAME);
         }
-        log.info("certificate context init success !");
+        log.info("初始化成功!");
     }
 
 
@@ -99,11 +99,11 @@ public class CertificateContextHolder {
             crtFile = FileTools.getFileOrCreat(CET_FILE_NAME);
             PemUtil.writePemObject("CERTIFICATE", certificate.getEncoded(), FileUtil.getWriter(crtFile, StandardCharsets.UTF_8, false));
         } catch (OperatorCreationException e) {
-            throw new IllegalArgumentException("Certificate operator creation exception", e);
+            throw new IllegalArgumentException("证书运算符创建异常!", e);
         } catch (CertificateEncodingException e) {
-            throw new IllegalArgumentException("The certificate encoding exception", e);
+            throw new IllegalArgumentException("证书编码异常", e);
         } catch (CertificateException e) {
-            throw new IllegalArgumentException("The certificate read exception", e);
+            throw new IllegalArgumentException("证书读取异常", e);
         }
     }
 

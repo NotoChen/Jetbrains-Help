@@ -24,7 +24,7 @@ import java.util.Set;
 
 import static cn.hutool.crypto.asymmetric.SignAlgorithm.SHA1withRSA;
 
-@Slf4j
+@Slf4j(topic = "授权上下文")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LicenseContextHolder {
 
@@ -52,7 +52,7 @@ public class LicenseContextHolder {
         try {
             certBase64 = Base64.encode(certificate.getEncoded());
         } catch (CertificateEncodingException e) {
-            throw new IllegalArgumentException("Certificate extraction failed", e);
+            throw new IllegalArgumentException("证书编码异常", e);
         }
         return CharSequenceUtil.format("{}-{}-{}-{}", licenseId, licensePartBase64, signatureBase64, certBase64);
     }
