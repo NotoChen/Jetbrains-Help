@@ -22,6 +22,9 @@ public class ProductsContextHolder {
 
     private static List<ProductCache> productCacheList;
 
+    // TODO 通过该接口可以获取付费IDE的CODE
+    // TODO https://data.services.jetbrains.com/products?fields=name,salesCode
+
     public static void init() {
         log.info("初始化中...");
         File productJsonFile = FileTools.getFileOrCreat(PRODUCT_JSON_FILE_NAME);
