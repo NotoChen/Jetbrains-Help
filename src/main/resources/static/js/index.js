@@ -37,8 +37,8 @@ $(document).ready(function() {
         "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED\n" +
         "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED";
         copyText(text)
-            .then((result) => {
-                alert(result);
+            .then(() => {
+                alert("VM options已复制成功");
             });
     };
 
