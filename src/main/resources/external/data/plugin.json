@@ -2295,5 +2295,248 @@
     "productCode": "PZKA",
     "name": "Zookeeper-Admin",
     "pricingModel": "PAID"
+  },
+  {
+    "id": 27802,
+    "productCode": "PJAVASINART",
+    "name": "AEM Repository Tools",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27802/794567/icon/default.svg"
+  },
+  {
+    "id": 27573,
+    "productCode": "PAICODEEYE",
+    "name": "AI CodeEye",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/27573/801275/icon/default.svg"
+  },
+  {
+    "id": 27843,
+    "productCode": "PALLICONSPACK",
+    "name": "All Icons Pack",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27843/811859/icon/default.svg"
+  },
+  {
+    "id": 15673,
+    "productCode": "PASYNCAPI",
+    "name": "AsyncAPI",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/15673/807396/icon/default.svg"
+  },
+  {
+    "id": 27750,
+    "productCode": "PAWESOMELOGVIEW",
+    "name": "Awesome Log Viewer",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/27750/798835/icon/default.svg"
+  },
+  {
+    "id": 28076,
+    "productCode": "PBOOTSTRAPFOLD",
+    "name": "Bootstrap Fold",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/28076/815715/icon/default.svg"
+  },
+  {
+    "id": 27209,
+    "productCode": "PCODEPORTAL",
+    "name": "Code Portal",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27209/752667/icon/default.svg"
+  },
+  {
+    "id": 27027,
+    "productCode": "PDARTDATACLASS",
+    "name": "Dart Data Class Pro",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27027/720981/icon/default.svg"
+  },
+  {
+    "id": 28160,
+    "productCode": "PDIRENV",
+    "name": "DirEnv Pro",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/28160/824875/icon/default.svg"
+  },
+  {
+    "id": 13834,
+    "productCode": "PDJANGOCOMMANDR",
+    "name": "Django command runner",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/13834/816480/icon/default.svg"
+  },
+  {
+    "id": 27023,
+    "productCode": "PDJANGOPOWERTOO",
+    "name": "Django PowerTools",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/27023/824864/icon/default.svg"
+  },
+  {
+    "id": 27953,
+    "productCode": "PENVCLI",
+    "name": "EnvCLI",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27953/812454/icon/default.svg"
+  },
+  {
+    "id": 27808,
+    "productCode": "PEXTRAIDETWLIFE",
+    "name": "Extra IDE Tweaks Lifetime",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27808/818725/icon/default.svg"
+  },
+  {
+    "id": 27681,
+    "productCode": "PFILESMANAGER",
+    "name": "Files Manager for Claude",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27681/780409/icon/default.svg"
+  },
+  {
+    "id": 26998,
+    "productCode": "PGITHUBACTIONSH",
+    "name": "GitHub Actions Helper",
+    "pricingModel": "FREEMIUM"
+  },
+  {
+    "id": 27654,
+    "productCode": "PHUBLHERO",
+    "name": "HubL Hero",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27654/778283/icon/default.svg"
+  },
+  {
+    "id": 27856,
+    "productCode": "PEGTRANSJVM",
+    "name": "i18n Translate Pro: JVM",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27856/808495/icon/default.svg"
+  },
+  {
+    "id": 28020,
+    "productCode": "PEGTRANSWEB",
+    "name": "i18n Translate Pro: Web",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/28020/813704/icon/default.svg"
+  },
+  {
+    "id": 27283,
+    "productCode": "PKARATEGEN",
+    "name": "KarateGen",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27283/743186/icon/default.svg"
+  },
+  {
+    "id": 27659,
+    "productCode": "PKUBERNETESCONT",
+    "name": "Kubernetes Control Center",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/27659/824540/icon/default.svg"
+  },
+  {
+    "id": 27826,
+    "productCode": "PLIQUIDHERO",
+    "name": "Liquid Hero",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27826/786324/icon/default.svg"
+  },
+  {
+    "id": 28071,
+    "productCode": "PMCPSERVERSFORJ",
+    "name": "MCP Servers for AI Assistants",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/28071/819609/icon/default.svg"
+  },
+  {
+    "id": 27118,
+    "productCode": "POPENAPIGUIEDIT",
+    "name": "OpenAPI GUI Editor",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27118/827033/icon/default.svg"
+  },
+  {
+    "id": 27222,
+    "productCode": "PPANDEVJIRAAUTO",
+    "name": "PanDev Jira Auto Worklog",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27222/757078/icon/default.svg"
+  },
+  {
+    "id": 27219,
+    "productCode": "PPINESCRIPTSUPP",
+    "name": "Pine Script Support",
+    "pricingModel": "PAID"
+  },
+  {
+    "id": 15640,
+    "productCode": "PPYTHONBYTECODE",
+    "name": "Python Bytecode",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/15640/812825/icon/default.svg"
+  },
+  {
+    "id": 24142,
+    "productCode": "PRUSTX",
+    "name": "RustX",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/24142/819278/icon/default.svg"
+  },
+  {
+    "id": 27936,
+    "productCode": "PSAVE",
+    "name": "Save",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27936/797247/icon/default.svg"
+  },
+  {
+    "id": 28063,
+    "productCode": "PSERVERLESSIN",
+    "name": "Serverless Insight",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/28063/817887/icon/default.svg"
+  },
+  {
+    "id": 23694,
+    "productCode": "PSMARTHUGO",
+    "name": "Smart Hugo",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/23694/821572/icon/default.svg"
+  },
+  {
+    "id": 27596,
+    "productCode": "PSMARTCHANGELIS",
+    "name": "SmartChangelist AI",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27596/799819/icon/default.svg"
+  },
+  {
+    "id": 27756,
+    "productCode": "PSOURCECODEDOCG",
+    "name": "Source Code Doc Generation",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27756/796458/icon/default.svg"
+  },
+  {
+    "id": 26854,
+    "productCode": "PSPRINGNAVI",
+    "name": "Spring Navigator",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/26854/740609/icon/default.svg"
+  },
+  {
+    "id": 27279,
+    "productCode": "PSTACKTRACE",
+    "name": "StackTrace",
+    "pricingModel": "PAID",
+    "icon": "https://plugins.jetbrains.com/files/27279/744820/icon/default.svg"
+  },
+  {
+    "id": 27684,
+    "productCode": "PTHRIFTREQUEST",
+    "name": "Thrift Request",
+    "pricingModel": "FREEMIUM",
+    "icon": "https://plugins.jetbrains.com/files/27684/779963/icon/default.svg"
   }
 ]
