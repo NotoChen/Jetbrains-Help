@@ -14,7 +14,14 @@ $(document).ready(function() {
             expiryDate: $('#expiryDate').val()
         };
         localStorage.setItem('licenseInfo', JSON.stringify(licenseInfo));
-        $('#mask, #form').hide();
+
+        // Add fade out animation
+        $('#form').addClass('opacity-0 scale-95');
+        $('#mask').addClass('opacity-0');
+
+        setTimeout(() => {
+            $('#mask, #form').hide().removeClass('opacity-0 scale-95');
+        }, 300);
     };
 
     // Function to handle search input
@@ -22,14 +29,51 @@ $(document).ready(function() {
         $("#product-list").load('/search?search=' + e.target.value);
     });
 
+    // Function to update preview
+    window.updatePreview = function() {
+        const licenseeName = $('#licenseeName').val() || '光云';
+        const assigneeName = $('#assigneeName').val() || '藏柏';
+        const expiryDate = $('#expiryDate').val() || '2111/11/11';
+
+        $('#previewLicenseName').text(licenseeName);
+        $('#previewAssigneeName').text(assigneeName);
+        $('#previewExpiryDate').text(expiryDate);
+    };
+
     // Function to show license form
     window.showLicenseForm = function () {
         let licenseInfo = JSON.parse(localStorage.getItem('licenseInfo'));
         $('#licenseeName').val(licenseInfo?.licenseeName || '光云');
         $('#assigneeName').val(licenseInfo?.assigneeName || '藏柏');
         $('#expiryDate').val(licenseInfo?.expiryDate || '2111-11-11');
+
+        // Update preview with current values
+        updatePreview();
+
+        // Show with fade in animation
         $('#mask, #form').show();
+        setTimeout(() => {
+            $('#form').removeClass('opacity-0 scale-95');
+            $('#mask').removeClass('opacity-0');
+        }, 10);
     };
+
+    // Function to close modal
+    window.closeModal = function() {
+        $('#form').addClass('opacity-0 scale-95');
+        $('#mask').addClass('opacity-0');
+
+        setTimeout(() => {
+            $('#mask, #form').hide().removeClass('opacity-0 scale-95');
+        }, 300);
+    };
+
+    // Close modal when clicking on mask
+    $('#mask').on('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
 
     // Function to show VM options
     window.showVmoptins = function () {

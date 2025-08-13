@@ -5,99 +5,277 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Jetbrains-Help</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="icon" href="https://www.jetbrains.com/favicon.ico?r=1234">
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        'jetbrains-blue': '#5380f7',
+                        'jetbrains-dark-blue': '#1d9bf0',
+                        'card-light': '#ffffff',
+                        'card-dark': '#1f2226',
+                        'bg-light': '#ffffff',
+                        'bg-dark': '#000000',
+                        'text-light': 'rgba(0, 0, 0, 0.87)',
+                        'text-dark': '#d9d9d9',
+                        'text-grey-light': '#9e9e9e',
+                        'text-grey-dark': '#6e767d',
+                        'border-light': 'rgba(0, 0, 0, 0.05)',
+                        'border-dark': '#4b4648',
+                        'hover-light': '#eeeeee',
+                        'hover-dark': 'rgba(255, 255, 255, 0.07)'
+                    },
+                    fontFamily: {
+                        'jetbrains': ['Gotham SSm A', 'Gotham SSm B', 'Arial Unicode MS', 'Helvetica', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': 'rgb(0 0 0 / 30%) 0 8px 40px -12px',
+                        'card-hover': 'rgb(0 0 0 / 40%) 0 12px 50px -8px'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-<header class="tip sticky flex items-center py-6">
-    <p>
-        🇨🇳 下载 <a href="ja-netfilter" title="Download jetbra first">ja-netfilter.zip</a> , 然后配置
-        你的JetBrains IDE(anything)'s <a onclick="showVmoptins()">IDE.vmoptions</a> 配置文件!<br>
-        🇨🇳 当然你也可以 <a onclick="showLicenseForm()">重新定制激活授权</a> 用以自定义你的激活信息!</br>
-        <strong>🇨🇳 请注意,此页面仅由 <span
-                th:text="${defaults.getDefaultLicenseName()} + '/' + ${defaults.getDefaultAssigneeName()}"></span>
-            个人所有!</strong>
-    </p>
-    <form class="parent">
-        <input type="text" class="search" id="search" placeholder="搜索IDE或者插件">
-    </form>
+<body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark font-jetbrains antialiased min-h-screen">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-card-light dark:bg-card-dark shadow-card rounded-2xl mx-auto mt-4 w-11/12 max-w-6xl">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between p-6 gap-4">
+        <!-- Info Section -->
+        <div class="flex-1 space-y-2">
+            <div class="flex items-center gap-2 text-sm lg:text-base">
+                <span class="text-2xl">🇨🇳</span>
+                <span>下载
+                    <a href="ja-netfilter"
+                       title="Download jetbra first"
+                       class="text-jetbrains-blue dark:text-jetbrains-dark-blue hover:underline font-medium transition-colors">
+                        ja-netfilter.zip (点击下载Jar)
+                    </a>
+                </span>
+            </div>
+            <div class="flex items-center gap-2 text-sm lg:text-base">
+                <span class="text-2xl">🇨🇳</span>
+                <span>配置JetBrains IDE's
+                    <a onclick="showVmoptins()"
+                       class="text-jetbrains-blue dark:text-jetbrains-dark-blue hover:underline font-medium cursor-pointer transition-colors">
+                        IDE.vmoptions (点击复制VM配置)
+                    </a>
+                </span>
+            </div>
+            <div class="flex items-center gap-2 text-sm lg:text-base">
+                <span class="text-2xl">🇨🇳</span>
+                <span>选择合适的IDE or Plugin, 点击复制激活码即可, 激活预览如下 ↓</span>
+            </div>
+            <!-- License Preview -->
+            <div class="inline-block bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-2 mb-3 border border-gray-200 dark:border-gray-700">
+                <span class="text-sm text-text-light dark:text-text-dark">
+                    授权给 <span id="previewLicenseName" th:text="${defaults.getDefaultLicenseName()}" class="font-medium">光云</span> / <span id="previewAssigneeName" th:text="${defaults.getDefaultAssigneeName()}" class="font-medium">藏柏</span>，有效期至 <span id="previewExpiryDate" th:text="${defaults.getDefaultExpiryDate()}" class="font-medium">2111/11/11</span>
+                </span>
+            </div>
+
+            <div class="flex items-center gap-2 text-sm lg:text-base">
+                <span class="text-2xl">🇨🇳</span>
+                <span>可以
+                    <a onclick="showLicenseForm()"
+                       class="text-jetbrains-blue dark:text-jetbrains-dark-blue hover:underline font-medium cursor-pointer transition-colors">
+                        自定义激活信息 (点击修改)
+                    </a>
+                </span>
+            </div>
+<!--            <div class="flex items-center gap-2 text-sm lg:text-base font-semibold">-->
+<!--                <span class="text-2xl">🇨🇳</span>-->
+<!--                <span>请注意,此页面仅由-->
+<!--                    <span class="text-jetbrains-blue dark:text-jetbrains-dark-blue"-->
+<!--                          th:text="${defaults.getDefaultLicenseName()} + '/' + ${defaults.getDefaultAssigneeName()}">-->
+<!--                    </span>-->
+<!--                    个人所有!-->
+<!--                </span>-->
+<!--            </div>-->
+        </div>
+
+        <!-- Search Section -->
+        <div class="w-full lg:w-auto lg:min-w-[400px] xl:min-w-[500px]">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-text-grey-light dark:text-text-grey-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text"
+                       id="search"
+                       placeholder="搜索IDE或者插件"
+                       class="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-800 border border-border-light dark:border-border-dark rounded-xl text-text-light dark:text-text-dark placeholder-text-grey-light dark:placeholder-text-grey-dark focus:outline-none focus:ring-2 focus:ring-jetbrains-blue dark:focus:ring-jetbrains-dark-blue focus:border-transparent transition-all duration-200 shadow-sm hover:shadow-md">
+            </div>
+        </div>
+    </div>
 </header>
-<main id="product-list" class="px-6 z-grid py-10" style="--space: 20rem; --gutter: 3.5rem">
+<!-- Main Content -->
+<main id="product-list" class="px-4 py-8">
     <th:block th:fragment="product-list">
-        <th:block th:each="product:${products}">
-            <article class="card" th:data-product="${product.getName()}"
-                     th:data-product-codes="${product.getProductCode()}">
-                <header>
-                    <div class="flex items-center justify-between px-6 pt-1 pb-0 bg-card radius-1">
-                        <div class="avatar-wrapper flex items-center justify-center overflow-hidden shrink-0">
-                            <div class="icon" th:classappend="${product.getIconClass()}" role="img"></div>
+        <!-- Unified Products and Plugins Grid -->
+        <div class="grid-container">
+            <!-- Products (will be rendered first) -->
+            <th:block th:each="product:${products}">
+                <article class="group relative bg-card-light dark:bg-card-dark rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer"
+                         th:data-product="${product.getName()}"
+                         th:data-product-codes="${product.getProductCode()}"
+                         onclick="copyLicense(this)"
+                         title="点击复制激活码">
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex items-center h-32">
+                        <!-- Icon -->
+                        <div class="w-20 h-20 rounded-xl bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <div class="icon w-16 h-16 bg-contain bg-center bg-no-repeat" th:classappend="${product.getIconClass()}" role="img"></div>
+                        </div>
+
+                        <!-- Product Name -->
+                        <h3 class="text-base font-semibold text-text-light dark:text-text-dark leading-tight group-hover:opacity-30 transition-opacity duration-300 flex-grow"
+                            th:title="${product.getName()}"
+                            th:text="${product.getName()}">
+                        </h3>
+                    </div>
+
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-card-light dark:bg-card-dark rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-95 transition-opacity duration-300">
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 text-jetbrains-blue dark:text-jetbrains-dark-blue">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-base font-medium text-jetbrains-blue dark:text-jetbrains-dark-blue">
+                                点击复制激活码
+                            </div>
                         </div>
                     </div>
-                    <hr/>
-                </header>
-                <div class="pd-6 overflow-hidden bg-card container radius-1">
-                    <h1 class="truncate truncate-1 color-primary mt-0 overflow-ellipsis" th:title="${product.getName()}"
-                        th:text="${product.getName()}"></h1>
-                    <p title="复制到剪贴板" class="truncate text-sm text-grey" onclick="copyLicense(this)"
-                       data-content="复制到剪贴板">
-                        *********************************************************************************************************************************************************
-                    </p>
-                </div>
-                <div class="mask"></div>
-                <div class="mask mask-c-1"></div>
-            </article>
-        </th:block>
-        <th:block th:each="plugin:${plugins}">
-            <article class="card" th:data-product="${plugin.getName()}"
-                     th:data-product-codes="${plugin.getProductCode()}">
-                <header>
-                    <div class="flex items-center justify-between px-6 pt-1 pb-0 bg-card radius-1">
-                        <div class="avatar-wrapper flex items-center justify-center overflow-hidden shrink-0">
-                            <div class="icon" role="img"
-                                 th:style="'background-image: url(' + ${plugin.getIcon()} + ')'"></div>
+
+                    <!-- Subtle Shadow -->
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-11/12 h-2 bg-gray-200 dark:bg-gray-600 rounded-2xl -z-10 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                </article>
+            </th:block>
+
+            <!-- Plugins (will be rendered after products) -->
+            <th:block th:each="plugin:${plugins}">
+                <article class="group relative bg-card-light dark:bg-card-dark rounded-2xl shadow-card hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer"
+                         th:data-product="${plugin.getName()}"
+                         th:data-product-codes="${plugin.getProductCode()}"
+                         onclick="copyLicense(this)"
+                         title="点击复制激活码">
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex items-center h-32">
+                        <!-- Icon -->
+                        <div class="w-20 h-20 rounded-xl bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <div class="icon w-16 h-16 bg-cover bg-center bg-no-repeat rounded-lg"
+                                 role="img"
+                                 th:style="'background-image: url(' + ${plugin.getIcon()} + ')'">
+                            </div>
+                        </div>
+
+                        <!-- Product Name -->
+                        <h3 class="text-base font-semibold text-text-light dark:text-text-dark leading-tight group-hover:opacity-30 transition-opacity duration-300 flex-grow"
+                            th:title="${plugin.getName()}"
+                            th:text="${plugin.getName()}">
+                        </h3>
+                    </div>
+
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-card-light dark:bg-card-dark rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-95 transition-opacity duration-300">
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 text-jetbrains-blue dark:text-jetbrains-dark-blue">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-base font-medium text-jetbrains-blue dark:text-jetbrains-dark-blue">
+                                点击复制激活码
+                            </div>
                         </div>
                     </div>
-                    <hr/>
-                </header>
-                <div class="pd-6 overflow-hidden bg-card container radius-1">
-                    <h1 class="truncate truncate-1 color-primary mt-0 overflow-ellipsis" th:title="${plugin.getName()}"
-                        th:text="${plugin.getName()}"></h1>
-                    <p title="复制到剪贴板" class="truncate text-sm text-grey" onclick="copyLicense(this)"
-                       data-content="复制到剪贴板">
-                        *********************************************************************************************************************************************************
-                    </p>
-                </div>
-                <div class="mask"></div>
-                <div class="mask mask-c-1"></div>
-            </article>
-        </th:block>
+
+                    <!-- Subtle Shadow -->
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-11/12 h-2 bg-gray-200 dark:bg-gray-600 rounded-2xl -z-10 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                </article>
+            </th:block>
+        </div>
     </th:block>
 </main>
-<div id="mask"
-     style="position:fixed;top:0;left:0;z-index:998;width:100%;height:100%;display:none;background-color:#000;opacity:0.5;overflow:hidden;"></div>
-<div id="form" style="position:fixed;top:20%;left:40%;width:40%;height:500px;z-index:999;display:none;">
-    <div class="form">
-        <div class="title">授权信息</div>
-        <div class="subtitle">欢迎你自定义</div>
-        <div class="input-container ic1">
-            <input id="licenseeName" class="input" type="text" placeholder=" "
-                   th:value="${defaults.getDefaultLicenseName()}"/>
-            <div class="cut"></div>
-            <label for="licenseeName" class="placeholder">许可证名称</label>
+<!-- Modal Overlay -->
+<div id="mask" class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-40 hidden opacity-0 transition-all duration-300"></div>
+
+<!-- License Form Modal -->
+<div id="form" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 hidden opacity-0 scale-95 transition-all duration-300">
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 w-80 shadow-lg border border-gray-200 dark:border-gray-700">
+        <!-- Close Button -->
+        <div class="flex justify-end mb-3">
+            <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-        <div class="input-container ic2">
-            <input id="assigneeName" class="input" type="text" placeholder=" "
-                   th:value="${defaults.getDefaultAssigneeName()}"/>
-            <div class="cut"></div>
-            <label for="assigneeName" class="placeholder">许可人名称</label>
+
+        <!-- Modal Header -->
+        <div class="text-center mb-6">
+            <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">授权信息定制</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">自定义您的激活授权信息</p>
         </div>
-        <div class="input-container ic2">
-            <input id="expiryDate" class="input" type="text" placeholder=""
-                   th:value="${defaults.getDefaultExpiryDate()}"/>
-            <div class="cut cut-short"></div>
-            <label for="expiryDate" class="placeholder">过期时间</label>
+
+        <!-- Form Fields -->
+        <div class="space-y-4">
+            <!-- License Name Field -->
+            <div class="space-y-1">
+                <label for="licenseeName" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                    许可证名称
+                </label>
+                <input id="licenseeName"
+                       type="text"
+                       th:value="${defaults.getDefaultLicenseName()}"
+                       oninput="updatePreview()"
+                       class="w-full px-3 py-2 text-sm bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200">
+            </div>
+
+            <!-- Assignee Name Field -->
+            <div class="space-y-1">
+                <label for="assigneeName" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                    许可人名称
+                </label>
+                <input id="assigneeName"
+                       type="text"
+                       th:value="${defaults.getDefaultAssigneeName()}"
+                       oninput="updatePreview()"
+                       class="w-full px-3 py-2 text-sm bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200">
+            </div>
+
+            <!-- Expiry Date Field -->
+            <div class="space-y-1">
+                <label for="expiryDate" class="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                    过期时间
+                </label>
+                <input id="expiryDate"
+                       type="text"
+                       th:value="${defaults.getDefaultExpiryDate()}"
+                       oninput="updatePreview()"
+                       class="w-full px-3 py-2 text-sm bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200">
+            </div>
         </div>
-        <button class="submit" onclick="submitLicenseInfo(this)">确认</button>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-2 mt-6">
+            <button onclick="closeModal()"
+                    class="flex-1 px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500">
+                取消
+            </button>
+            <button onclick="submitLicenseInfo(this)"
+                    class="flex-1 px-4 py-2 text-sm bg-blue-500 dark:bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
+                确认保存
+            </button>
+        </div>
     </div>
 </div>
 </body>
